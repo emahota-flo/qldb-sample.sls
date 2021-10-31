@@ -2,7 +2,7 @@ import { HttpBadRequestError } from '@errors/http';
 import { errorHandler } from '@helper/error-handler';
 import { log } from '@helper/logger';
 import { APIGatewayLambdaEvent } from '@interfaces/api-gateway-lambda.interface';
-import { AccountBalanceModel } from '@models/qldb/account-balances';
+import { AccountBalanceModel } from '@models/QLDB/account-balance';
 import { Handler } from 'aws-lambda';
 import { AccountBalanceUpdateBody } from './account-balance.interface';
 

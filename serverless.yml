@@ -1,4 +1,4 @@
-service: qldb-sample
+service: QLDB-sample
 
 provider:
   name: aws
@@ -13,7 +13,7 @@ provider:
   iamRoleStatements:
     - Effect: Allow
       Action:
-        - qldb:*
+        - QLDB:*
       Resource: '*'
 
 package:

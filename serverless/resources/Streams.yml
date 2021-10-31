@@ -28,7 +28,7 @@ Resources:
           - Effect: Allow
             Principal:
               Service:
-                - qldb.amazonaws.com
+                - QLDB.amazonaws.com
             Action:
               - 'sts:AssumeRole'
       Path: /

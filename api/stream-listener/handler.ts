@@ -1,5 +1,5 @@
 import { log } from '@helper/logger';
-import { AccountBalanceModel } from '@models/qldb/account-balances';
+import { AccountBalanceModel } from '@models/QLDB/account-balance';
 import { Handler } from 'aws-lambda';
 import * as ion from 'ion-js';
 import * as lambda from 'aws-lambda';
