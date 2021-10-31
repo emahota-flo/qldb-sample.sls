@@ -1,0 +1,14 @@
+Resources:
+  SampleLedger:
+    Type: AWS::QLDB::Ledger
+    Properties:
+      Name: ${self:custom.ledgerNames.SampleLedger.${opt:stage, self:provider.stage}}
+      DeletionProtection: false
+      PermissionsMode: STANDARD
+
+  QLDBTables:
+    Type: Custom::qldbTable
+    DependsOn: SampleLedger
+    Properties:
+      ServiceToken: !GetAtt CreateQLDBTablesLambdaFunction.Arn
+      Version: 1.0

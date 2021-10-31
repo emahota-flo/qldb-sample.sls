@@ -1,0 +1,7 @@
+# ================== Resources =====================
+
+createQLDBTables:
+  handler: api/resources/handler.createQLDBTables
+  tags:
+    client: ${file(env.yml):${opt:stage, self:provider.stage}.CLIENT}
+  timeout: 28

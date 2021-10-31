@@ -1,0 +1,45 @@
+Resources:
+  QLDBStream:
+    Type: AWS::QLDB::Stream
+    Properties:
+      InclusiveStartTime: '2020-05-29T00:00:00Z'
+      KinesisConfiguration:
+        AggregationEnabled: false
+        StreamArn: !GetAtt QLDBKinesisStream.Arn
+      LedgerName: ${self:custom.ledgerNames.SampleLedger.${opt:stage, self:provider.stage}}
+      RoleArn: !GetAtt QLDBStreamRole.Arn
+      StreamName: ${self:custom.streamNames.QLDBStream.${opt:stage, self:provider.stage}}
+    DependsOn: SampleLedger
+
+  QLDBKinesisStream:
+    Type: AWS::Kinesis::Stream
+    Properties:
+      Name: ${self:custom.streamNames.QLDBKinesisStream.${opt:stage, self:provider.stage}}
+      RetentionPeriodHours: 168
+      ShardCount: 3
+
+  QLDBStreamRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: ${self:custom.streamNames.QLDBStreamRole.${opt:stage, self:provider.stage}}
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - qldb.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Path: /
+      Policies:
+        - PolicyName: root
+          PolicyDocument:
+            Version: '2012-10-17'
+            Statement:
+              - Effect: Allow
+                Action:
+                  - 'kinesis:PutRecord*'
+                  - 'kinesis:DescribeStream'
+                  - 'kinesis:ListShards'
+                Resource: '*'

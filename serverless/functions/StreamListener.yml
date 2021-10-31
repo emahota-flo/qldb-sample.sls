@@ -1,0 +1,19 @@
+# ================== Stream Listener =====================
+
+streamListener:
+  handler: api/stream-listener/handler.streamListener
+  tags:
+    client: ${file(env.yml):${opt:stage, self:provider.stage}.CLIENT}
+  timeout: 28
+  events:
+    - stream:
+        type: kinesis
+        startingPosition: LATEST
+        parallelizationFactor: 10
+        batchSize: 100
+        batchWindow: 5
+        maximumRetryAttempts: 5
+        arn:
+          Fn::GetAtt:
+            - QLDBKinesisStream
+            - Arn

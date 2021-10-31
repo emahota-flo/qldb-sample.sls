@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "preserveConstEnums": true,
+    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "sourceMap": true,
+    "target": "es2017",
+    "outDir": ".build",
+    "moduleResolution": "node",
+    "lib": ["es2017", "esnext.asynciterable"],
+    "rootDir": "./",
+    "baseUrl": ".",
+    "paths": {
+      "@models/*": ["./models/*"],
+      "@services/*": ["./services/*"],
+      "@helper/*": ["./helper/*"],
+      "@interfaces/*": ["./interfaces/*"],
+      "@errors/*": ["./errors/*"]
+    }
+  },
+  "exclude": ["node_modules", "coverage", ".build", ".git"]
+}

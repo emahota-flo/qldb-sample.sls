@@ -1,0 +1,58 @@
+{
+  "name": "qldb-sample",
+  "version": "1.0.0",
+  "description": "QLDB Sample",
+  "main": "index.js",
+  "scripts": {
+    "deploy:dev": "sls deploy --stage dev",
+    "deploy:test": "sls deploy --stage test",
+    "deploy:prod": "sls deploy --stage prod",
+    "deploy:local": "sls offline start --stage local --v",
+    "build": "sls webpack"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "author": "Eugene Mahota",
+  "license": "ISC",
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
+    "@redtea/serverless-env-generator": "^1.5.3",
+    "@types/aws-lambda": "^8.10.63",
+    "@types/bluebird": "^3.5.32",
+    "@types/node": "^14.11.8",
+    "@types/validator": "^13.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.4.0",
+    "@typescript-eslint/parser": "^4.4.0",
+    "copy-webpack-plugin": "^6.2.0",
+    "dotenv-webpack": "~2.0.0",
+    "eslint": "^7.10.0",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.0.2",
+    "serverless": "^2.6.0",
+    "serverless-dir-config-plugin": "^0.1.5",
+    "serverless-offline": "^6.8.0",
+    "serverless-prune-plugin": "^1.4.3",
+    "serverless-webpack": "^5.3.5",
+    "ts-loader": "^8.0.4",
+    "tsconfig-paths-webpack-plugin": "^3.3.0",
+    "typescript": "^4.0.3",
+    "webpack": "^4.43.0",
+    "webpack-node-externals": "^2.5.2"
+  },
+  "dependencies": {
+    "@redtea/format-axios-error": "^2.0.2",
+    "alai": "^1.0.3",
+    "amazon-qldb-driver-nodejs": "^2.2.0",
+    "aws-sdk": "^2.893.0",
+    "cfn-response-promise": "^1.1.0",
+    "dotenv": "^8.2.0",
+    "ion-js": "^4.2.1",
+    "source-map-support": "^0.5.19",
+    "xml2js": "^0.4.23"
+  }
+}
